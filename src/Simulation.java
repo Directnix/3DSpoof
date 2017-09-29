@@ -24,9 +24,10 @@ public class Simulation extends JPanel implements ActionListener {
     ArrayList<SimObject> objects = new ArrayList<>();
 
     Simulation(){
-        objects.add(new SimObject(new Point2D.Double(620,540), 12, imageFromResource("tree.png")));
-        objects.add(new SimObject(new Point2D.Double(960,540), 5, imageFromResource("car.png")));
-        objects.add(new SimObject(new Point2D.Double(1300,540), 0.2f, imageFromResource("suspisiouslamb.png")));
+        objects.add(new SimObject(new Point2D.Double(620,540), 12, 1, imageFromResource("tree.png")));
+        objects.add(new SimObject(new Point2D.Double(960,540), 6, 0.6f, imageFromResource("endzone.png")));
+        objects.add(new SimObject(new Point2D.Double(960,540), 5, 1, imageFromResource("car.png")));
+        objects.add(new SimObject(new Point2D.Double(1300,540), 6, 1, imageFromResource("human.png")));
 
         new Timer(15, this).start();
     }

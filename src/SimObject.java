@@ -15,12 +15,13 @@ public class SimObject {
     BufferedImage[] sprites;
 
     int width, heigth;
-    float angle, scale;
+    float angle, scale, alpha;
 
-    public SimObject(Point2D location, float scale, BufferedImage spritesheet) {
+    public SimObject(Point2D location, float scale, float alpha, BufferedImage spritesheet) {
         this.location = location;
         this.spritesheet = spritesheet;
         this.scale = scale;
+        this.alpha = alpha;
 
         heigth = spritesheet.getHeight();
         width =  spritesheet.getHeight();
@@ -40,6 +41,9 @@ public class SimObject {
 
         tx.translate(location.getX(),location.getY());
         tx.scale(scale,scale);
+
+        g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
+                alpha));
 
         for(BufferedImage sprite : sprites) {
             tx.rotate(angle);
